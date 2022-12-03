@@ -13,7 +13,7 @@ const student = [
     {name: 'Das', age: 12, grade: 2, money: 550, lang: 'arm', sex: 'male',},
     {name: 'Das', age: 41, grade: 3, money: 23, lang: 'ru', sex: 'male',}
 ];
-
+//#region task1
 let restStudents = student.filter( (item,index,array) => {
     let {grade,name} = item
     console.log(name!="As");
@@ -21,7 +21,19 @@ let restStudents = student.filter( (item,index,array) => {
          return(true)
      } return false
 } )
-console.log("res:",restStudents);
+
+//#endregion
+//#region task2
+let solderStudents = student.filter( function (item,index,array) {
+    let {age,sex} = item
+    return((age>=18 && sex=="male") ? true : false)
+} )
+solderStudents=solderStudents.map((item,index,array) =>{
+    return({name: item.name, age: item.age, sex: item.sex})
+})
+
+//#endregion
+
 /*todo:
    1.Сделать функцию, которая отчисляет двоечников
    2.Сделать функцию которая отбирает годных для армии
